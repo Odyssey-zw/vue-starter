@@ -7,17 +7,19 @@ module.exports = {
     sourceType: 'module'
   },
   env: {
-    browser: true,
+    browser: true
   },
   // https://github.com/standard/standard/blob/master/docs/RULES-en.md
   extends: 'standard',
   // required to lint *.vue files
-  plugins: [
-    'html'
-  ],
+  plugins: ['html'],
   // add your custom rules here
   rules: {
-    // allow async-await
+    // 箭头函数用小括号括起来
+    'arrow-parens': 0,
+    // 函数定义时括号前面要不要空格
+    'space-before-function-paren': ['off', 'always'],
+    // 生成器函数*的前后空格
     'generator-star-spacing': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
