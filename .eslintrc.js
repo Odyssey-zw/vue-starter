@@ -2,24 +2,27 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
-    sourceType: 'module'
+    parser: 'babel-eslint'
   },
   env: {
-    browser: true
+    browser: true,
   },
-  // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-  extends: 'standard',
+  extends: [
+    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
+    'plugin:vue/essential',
+    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
+    'standard'
+  ],
   // required to lint *.vue files
-  plugins: ['html'],
+  plugins: [
+    'vue'
+  ],
   // add your custom rules here
   rules: {
-    // 箭头函数用小括号括起来
-    'arrow-parens': 0,
-    // 函数定义时括号前面要不要空格
-    'space-before-function-paren': ['off', 'always'],
-    // 生成器函数*的前后空格
+    'space-before-function-paren': ["error", "never"],
+    // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
