@@ -78,7 +78,7 @@ export default {
       let duration = 0
       this.duration = 0
       clearInterval(this.timer)
-      setInterval(() => {
+      this.timer = setInterval(() => {
         duration++
         that.duration = duration
       }, 1000)
