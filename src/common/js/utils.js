@@ -1,23 +1,25 @@
 // import { baseURL } from './request'
 
+// 函数节流
 export const throttle = (
   obj = {
-    thimer: 0
+    timer: 0
   },
   cb,
-  date = 200
+  duration = 200
 ) => {
-  if (!obj.thimer) {
-    obj.thimer = 0
+  if (!obj.timer) {
+    obj.timer = 0
   }
-  clearTimeout(obj.thimer)
-  obj.thimer = setTimeout(() => {
+  clearTimeout(obj.timer)
+  obj.timer = setTimeout(() => {
     cb()
-  }, date)
+  }, duration)
 }
 
-export const log = (message, ...optionalParams) => {
-  if (process.env.NODE_ENV !== 'production') {
-    console.log(message, optionalParams)
-  }
+// 暂停几秒，模拟网速慢的情况用
+export const sleep = duration => {
+  return new Promise(resolve => {
+    setInterval(() => resolve(), duration)
+  })
 }
