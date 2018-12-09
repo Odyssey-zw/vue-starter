@@ -1,4 +1,4 @@
-const TestPage = () => import('@/views/test/test')
+const TestPage = () => import('@/views/testDemo/test')
 
 const RecorderJsPage = () => import('@/views/recorderjs/recorderjs')
 const VueWaterfallEasyPage = () => import('@/views/vueWaterfallEasy/index')
