@@ -107,6 +107,7 @@ export default {
           let fd = new FormData()
           fd.append('audioData', blob)
           // 发送fd到后端 语音识别
+          console.log('===FormData===', fd)
           // buffer is an AudioBuffer
         })
       } catch (e) {
